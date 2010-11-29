@@ -64,6 +64,10 @@ module SimpleAuth
       self.class.defined_roles.each { |r| logout(r) }
     end
 
+    def attributes=(attrs)
+      attrs.each { |key, value| send(:"#{key}=", value) }
+    end
+       
     protected
     def password_for(role)
       role = role.to_sym

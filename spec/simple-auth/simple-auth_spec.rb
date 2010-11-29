@@ -40,4 +40,11 @@ describe "Simple auth spec" do
     @session.authorized?(:manager).should be_false    
     @session.authorized?.should be_false    
   end
+  
+  it "attributes= should work" do
+    proc { @session.attributes = {} }.should_not raise_error
+    proc { @session.attributes = {:role => "test", :password => 'test'} }.should_not raise_error
+    @session.role.should eq('test')
+    @session.password.should eq('test')    
+  end
 end
