@@ -1,0 +1,42 @@
+= Simple Auth
+
+Static authentication && authorization in rails
+
+= Example
+
+  models/admin_session.rb
+  
+  class AdminSession < SimpleAuth::Session
+    roles :admin, :manager
+    password_for :admin, "123456"
+    password_for :manager, proc { "123456" }
+  end
+  
+  controllers/admin/index_controller.rb
+  
+  def index
+    @session = AdminSession.new(session)
+    render @session.authorized? ? :template => "admin/index" : :template => "admin/index/login"
+  end
+  
+  def login
+    @session = AdminSession.new(session)
+    @session.save
+    if @session.authorized?
+      redirect_to admin_path
+    else
+      render :template => "admin/index/login"
+    end
+  end
+  
+  def logout
+    @session.logout_all
+    redirect_to admin_path
+  end
+  
+  views/admin/login.html.erb
+  
+  = form_for @session do |s|
+    = f.text_field :role
+    = f.text_field :password
+    = f.submit "Login"
