@@ -8,6 +8,7 @@ describe "Simple auth spec" do
 
   it "should authorize" do
     @session.authorized?(:admin).should be_false
+    @session.authorized?.should be_false
 
     @session.role = "admin"
     @session.password = "123456"
@@ -26,6 +27,7 @@ describe "Simple auth spec" do
     @session.password = "123456"
     @session.save
     
+    @session.authorized?.should be_true    
     @session.authorized?(:admin).should be_true
     @session.authorized?(:manager).should be_true    
     
@@ -36,5 +38,6 @@ describe "Simple auth spec" do
     @session.logout_all
     @session.authorized?(:admin).should be_false
     @session.authorized?(:manager).should be_false    
+    @session.authorized?.should be_false    
   end
 end
