@@ -47,4 +47,8 @@ describe "Simple auth spec" do
     @session.role.should eq('test')
     @session.password.should eq('test')    
   end
+  
+  it "should not not handle empty credentials" do
+    proc { @session.save }.should_not raise_error
+  end
 end

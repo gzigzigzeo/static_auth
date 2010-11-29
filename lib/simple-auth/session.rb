@@ -1,5 +1,5 @@
 require 'active_support/concern'
-require 'active_support/core_ext/class/inheritable_attributes'
+require 'active_support/core_ext/object/blank'
 require 'active_support/core_ext/class/inheritable_attributes'
 require 'active_model/conversion'
 require 'active_model/naming'
@@ -42,7 +42,7 @@ module SimpleAuth
     end
 
     def save    
-      if self.class.defined_roles.include?(self.role.to_sym)
+      if !self.role.blank? && self.class.defined_roles.include?(self.role.to_sym)
         self.session[session_key_for(role)] = SHA1.sha1(self.password).to_s
       end
     end  
