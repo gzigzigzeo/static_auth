@@ -1,10 +1,12 @@
 require 'active_model/conversion'
+require 'active_model/naming'
 require 'active_support/core_ext/class/inheritable_attributes'
 require 'sha1'
 
 module SimpleAuth
   class Session
     include ActiveModel::Conversion
+    include ActiveModel::Naming    
     def persisted?; false; end
 
     class_inheritable_array :defined_roles
