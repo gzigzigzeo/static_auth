@@ -1,11 +1,15 @@
+require 'active_support/concern'
+require 'active_support/core_ext/class/inheritable_attributes'
+require 'active_support/core_ext/class/inheritable_attributes'
 require 'active_model/conversion'
 require 'active_model/naming'
-require 'active_support/core_ext/class/inheritable_attributes'
+require 'active_model/attribute_methods'
 require 'sha1'
 
 module SimpleAuth
   class Session
     include ActiveModel::Conversion
+    include ActiveModel::AttributeMethods
     extend ActiveModel::Naming
     
     def persisted?; false; end
