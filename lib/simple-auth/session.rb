@@ -6,7 +6,8 @@ require 'sha1'
 module SimpleAuth
   class Session
     include ActiveModel::Conversion
-    include ActiveModel::Naming    
+    extend ActiveModel::Naming
+    
     def persisted?; false; end
 
     class_inheritable_array :defined_roles
