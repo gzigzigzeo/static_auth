@@ -16,11 +16,12 @@ Static authentication && authorization in rails
   
   def index
     @session = AdminSession.new(session)
-    render @session.authorized? ? :template => "admin/index" : :template => "admin/index/login"
+    render :template => @session.authorized? ? "admin/index" : "admin/index/login"
   end
   
   def login
     @session = AdminSession.new(session)
+    @session.attributes = params[:admin_session]
     @session.save
     if @session.authorized?
       redirect_to admin_path
@@ -37,6 +38,6 @@ Static authentication && authorization in rails
   views/admin/login.html.erb
   
   = form_for @session do |s|
-    = f.text_field :role
-    = f.text_field :password
-    = f.submit "Login"
+    = s.text_field :role
+    = s.text_field :password
+    = s.submit "Login"
