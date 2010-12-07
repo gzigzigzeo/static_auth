@@ -59,3 +59,4 @@ Static authentication && authorization in rails
 = Todo
 
 1. Salting
+2. Is it neccessary when devise exists?
