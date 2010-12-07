@@ -42,3 +42,20 @@ Static authentication && authorization in rails
     = s.text_field :role
     = s.text_field :password
     = s.submit "Login"
+
+= Setting encryption method
+
+  class AdminSession < SimpleAuth::Session
+    roles :admin, :manager
+    password_for :admin, "123456"
+    password_for :manager, proc { "123456" }
+
+    # It always receives a string
+    encryption_methods[:custom] = proc { |value| MD5::md5(value + "secret salt") }
+    
+    set_encryption_method :custom # Default methods: :plain, :md5, :sha1, :bcrypt
+  end
+
+= Todo
+
+1. Salting
