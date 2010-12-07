@@ -10,6 +10,7 @@ Static authentication && authorization in rails
     roles :admin, :manager
     password_for :admin, "123456"
     password_for :manager, proc { "123456" }
+    set_encryption_method :md5
   end
   
   controllers/admin/index_controller.rb
