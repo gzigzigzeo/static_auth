@@ -9,7 +9,7 @@ Static authentication && authorization in rails
   class AdminSession < SimpleAuth::Session
     roles :admin, :manager
     password_for :admin, "123456"
-    password_for :manager, proc { "123456" }
+    password_for :manager, proc { encrypt("123456") }
     set_encryption_method :md5
   end
   
@@ -48,7 +48,7 @@ Static authentication && authorization in rails
   class AdminSession < SimpleAuth::Session
     roles :admin, :manager
     password_for :admin, "123456"
-    password_for :manager, proc { "123456" }
+    password_for :manager, proc { encrypt("123456") }
 
     # It always receives a string
     encryption_methods[:custom] = proc { |value| MD5::md5(value + "secret salt") }
