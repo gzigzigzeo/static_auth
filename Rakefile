@@ -14,7 +14,7 @@ begin
   require "jeweler"
   Jeweler::Tasks.new do |s|
     s.name              = "simple-auth"
-    s.version           = "0.0.2"
+    s.version           = "0.0.3"
     s.author            = "Victor Sokolov"
     s.email             = "gzigzigzeo@gmail.com"
     s.homepage          = "http://github.com/gzigzigzeo/simple-auth"
