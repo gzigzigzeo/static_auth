@@ -13,7 +13,7 @@ begin
   
   require "jeweler"
   Jeweler::Tasks.new do |s|
-    s.name              = "simple-auth"
+    s.name              = "simple_auth"
     s.version           = "0.0.3"
     s.author            = "Victor Sokolov"
     s.email             = "gzigzigzeo@gmail.com"
