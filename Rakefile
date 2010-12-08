@@ -24,6 +24,10 @@ begin
     s.files             = include_files
     s.require_path      = "lib"
     s.has_rdoc          = false
+    
+    s.add_dependency 'activemodel', '> 3'
+    s.add_dependency 'activesupport', '> 3'
+    s.add_dependency 'bcrypt-ruby'    
   end
   
   Jeweler::GemcutterTasks.new
