@@ -1,4 +1,4 @@
-= Simple Auth
+= Static Auth
 
 Static authentication && authorization in rails
 
@@ -6,16 +6,16 @@ Static authentication && authorization in rails
 
 Rails3 only Add the following line to your Gemfile:
 
-  gem 'simple_auth'
+  gem 'static_auth'
 
 = Example
 
   models/admin_session.rb
   
-  class AdminSession < SimpleAuth::Session
+  class AdminSession < StaticAuth::Session
     roles :admin, :manager
     password_for :admin, "123456"
-    password_for :manager, proc { encrypt("123456") }
+    password_for :manager, proc { "123456".reverse }
     set_encryption_method :md5
   end
   
@@ -51,10 +51,10 @@ Rails3 only Add the following line to your Gemfile:
 
 = Setting encryption method
 
-  class AdminSession < SimpleAuth::Session
+  class AdminSession < StaticAuth::Session
     roles :admin, :manager
     password_for :admin, "123456"
-    password_for :manager, proc { encrypt("123456") }
+    password_for :manager, proc { "123456".reverse }
 
     # It always receives a string
     encryption_methods[:custom] = proc { |value| MD5::md5(value + "secret salt") }
@@ -65,4 +65,3 @@ Rails3 only Add the following line to your Gemfile:
 = Todo
 
 1. Salting
-2. Is it neccessary when devise exists?
