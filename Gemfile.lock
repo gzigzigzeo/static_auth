@@ -1,7 +1,10 @@
 PATH
   remote: .
   specs:
-    simple-auth (0.0.1)
+    simple-auth (0.0.3)
+      activemodel (> 3)
+      activesupport (> 3)
+      bcrypt-ruby
 
 GEM
   remote: http://rubygems.org/
