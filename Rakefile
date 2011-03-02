@@ -13,11 +13,11 @@ begin
   
   require "jeweler"
   Jeweler::Tasks.new do |s|
-    s.name              = "simple_auth"
+    s.name              = "static_auth"
     s.version           = "0.0.4"
     s.author            = "Victor Sokolov"
     s.email             = "gzigzigzeo@gmail.com"
-    s.homepage          = "http://github.com/gzigzigzeo/simple-auth"
+    s.homepage          = "http://github.com/gzigzigzeo/static-auth"
     s.description       = "Static authentication && authorization in rails"
     s.summary           = "Static authentication && authorization in rails. Supports roles and static passwords."
     s.platform          = Gem::Platform::RUBY

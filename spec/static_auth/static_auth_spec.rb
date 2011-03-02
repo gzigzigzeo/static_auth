@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Simple auth spec" do
+describe "Static auth spec" do
   before(:each) do
     @session_hash = {}
     @session = AdminSession.new(@session_hash)

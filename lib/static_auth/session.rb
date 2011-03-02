@@ -7,7 +7,7 @@ require 'active_model/attribute_methods'
 require 'digest/sha1'
 require 'digest/md5'
 
-module SimpleAuth
+module StaticAuth
   class Session
     include ActiveModel::Conversion
     include ActiveModel::AttributeMethods
@@ -111,7 +111,7 @@ module SimpleAuth
     self.defined_passwords = {}
 
     class_inheritable_accessor :session_key
-    self.session_key = "SIMPLEAUTH"
+    self.session_key = "STATIC_AUTH"
 
     class_inheritable_accessor :encryption_method
     self.encryption_method = :plain

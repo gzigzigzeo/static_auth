@@ -12,7 +12,7 @@ Bundler.require
 
 $: << File.join(File.dirname(__FILE__), '..', 'lib')
 
-class AdminSession < SimpleAuth::Session
+class AdminSession < StaticAuth::Session
   roles :admin, :manager
   password_for :admin, "123456"
   password_for :manager, proc { encrypt("123456") }

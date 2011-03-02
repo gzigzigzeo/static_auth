@@ -1,4 +1,4 @@
-module SimpleAuth
+module StaticAuth
   if defined? Rails::Railtie
     class Railtie < Rails::Railtie
     end
