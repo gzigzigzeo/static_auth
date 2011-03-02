@@ -4,9 +4,8 @@ require 'active_support/core_ext/class/inheritable_attributes'
 require 'active_model/conversion'
 require 'active_model/naming'
 require 'active_model/attribute_methods'
-require 'sha1'
-require 'md5'
-require 'bcrypt'
+require 'digest/sha1'
+require 'digest/md5'
 
 module SimpleAuth
   class Session
@@ -19,9 +18,8 @@ module SimpleAuth
     class_inheritable_accessor :encryption_methods
     self.encryption_methods = {
       :plain => proc { |value| value.reverse },
-      :sha1 => proc { |value| SHA1::sha1(value).to_s },
-      :md5 => proc { |value| MD5::md5(value).to_s },
-      :bcrypt => proc { |value| BCrypt::Password.new(value, :cost => 10).to_s }
+      :sha1 => proc { |value| Digest::SHA1.hexdigest(value).to_s },
+      :md5 => proc { |value| Digest::MD5.hexdigest(value).to_s }
     }
 
     attr_accessor :role, :password

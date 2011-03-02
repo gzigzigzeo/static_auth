@@ -14,7 +14,7 @@ begin
   require "jeweler"
   Jeweler::Tasks.new do |s|
     s.name              = "simple_auth"
-    s.version           = "0.0.3"
+    s.version           = "0.0.4"
     s.author            = "Victor Sokolov"
     s.email             = "gzigzigzeo@gmail.com"
     s.homepage          = "http://github.com/gzigzigzeo/simple-auth"
@@ -27,7 +27,6 @@ begin
     
     s.add_dependency 'activemodel', '> 3'
     s.add_dependency 'activesupport', '> 3'
-    s.add_dependency 'bcrypt-ruby'    
   end
   
   Jeweler::GemcutterTasks.new

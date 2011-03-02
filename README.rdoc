@@ -59,9 +59,10 @@ Rails3 only Add the following line to your Gemfile:
     # It always receives a string
     encryption_methods[:custom] = proc { |value| MD5::md5(value + "secret salt") }
     
-    set_encryption_method :custom # Default methods: :plain, :md5, :sha1, :bcrypt
+    set_encryption_method :custom # Default methods: :plain, :md5, :sha1
   end
 
 = Todo
 
 1. Salting
+2. BCrypt
